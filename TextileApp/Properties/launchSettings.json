@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TextileApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TextileApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

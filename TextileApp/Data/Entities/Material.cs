@@ -5,15 +5,15 @@ namespace TextileApp.Data.Entities
 {
     public class Material
     {
-        [Key] public int material_id { get; set; }
-        public string? name { get; set; }
-        public string? composition { get; set; }
-        public decimal width { get; set; }
-        public decimal price_per_meter { get; set; }
-        public string? color { get; set; }
-        public int stock_quantity { get; set; }
-        public string? supplier { get; set; }
-        public DateTime arrival_date { get; set; }
+        [Key] public int MaterialId { get; set; }
+        public string? Name { get; set; }
+        public string? Composition { get; set; }
+        public decimal Width { get; set; }
+        public decimal PricePerMeter { get; set; }
+        public string? Color { get; set; }
+        public int StockQuantity { get; set; }
+        public string? Supplier { get; set; }
+        public DateTime ArrivalDate { get; set; }
     }
 }
 

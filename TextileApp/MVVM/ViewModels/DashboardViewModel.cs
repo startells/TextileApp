@@ -10,6 +10,7 @@ namespace TextileApp.MVVM.ViewModels
     public partial class DashboardViewModel : ObservableObject
     {
         private readonly IMaterialService? _materialService;
+        private readonly IOrderService? _orderService;
 
         [ObservableProperty]
         public partial string Title { get; set; } = "Панель управления";
@@ -18,19 +19,23 @@ namespace TextileApp.MVVM.ViewModels
         public partial int MaterialsCount { get; set; }
 
         [ObservableProperty]
+        public partial int ActiveOrdersCount { get; set; }
+
+        [ObservableProperty]
         public partial bool IsLoading { get; set; }
 
-        public DashboardViewModel(IMaterialService? materialService)
+        public DashboardViewModel(IMaterialService? materialService, IOrderService? orderService)
         {
             _materialService = materialService;
+            _orderService = orderService;
         }
 
         [RelayCommand]
         public async Task LoadData()
         {
-            if (_materialService == null)
+            if (_materialService == null || _orderService == null)
             {
-                Debug.WriteLine("MaterialService is not available. Cannot load data.");
+                Debug.WriteLine("Services are not available. Cannot load data.");
                 return;
             }
 
@@ -38,7 +43,9 @@ namespace TextileApp.MVVM.ViewModels
             {
                 IsLoading = true;
                 MaterialsCount = await _materialService.GetMaterialCountAsync();
+                ActiveOrdersCount = await _orderService.GetActiveOrderCountAsync();
                 Debug.WriteLine($"Loaded material count: {MaterialsCount}");
+                Debug.WriteLine($"Loaded active orders count: {ActiveOrdersCount}");
             }
             finally
             {

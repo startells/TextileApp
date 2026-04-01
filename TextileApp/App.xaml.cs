@@ -30,6 +30,7 @@ namespace TextileApp
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IMaterialService, MaterialService>();
+            services.AddScoped<IOrderService, OrderService>();
             services.AddTransient<DashboardViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();

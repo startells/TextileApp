@@ -35,7 +35,7 @@ namespace TextileApp.Services
 
         public async Task<int> GetTotalStockAsync()
         {
-            return await _dbContext.Materials.SumAsync(m => m.stock_quantity);
+            return await _dbContext.Materials.SumAsync(m => m.StockQuantity);
         }
     }
 }

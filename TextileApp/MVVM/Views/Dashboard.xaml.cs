@@ -13,7 +13,7 @@ namespace TextileApp.MVVM.Views
         {
             InitializeComponent();
             var app = App.Current as App;
-            ViewModel = app?.GetService<DashboardViewModel>() ?? new DashboardViewModel(null);
+            ViewModel = app?.GetService<DashboardViewModel>() ?? new DashboardViewModel(null, null);
             DataContext = this;
         }
 

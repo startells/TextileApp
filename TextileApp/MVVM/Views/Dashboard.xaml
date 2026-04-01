@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -29,6 +30,27 @@
             <StackPanel>
                 <TextBlock Text="Материалы" FontSize="16" Foreground="{ThemeResource TextFillColorSecondary}"/>
                 <TextBlock Text="{Binding ViewModel.MaterialsCount}" FontSize="48" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Button Grid.Column="1" 
+                    VerticalAlignment="Center"
+                    Command="{Binding ViewModel.LoadDataCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <SymbolIcon Symbol="Refresh"/>
+                    <TextBlock Text="Обновить"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="Активные заказы" FontSize="16" Foreground="{ThemeResource TextFillColorSecondary}"/>
+                <TextBlock Text="{Binding ViewModel.ActiveOrdersCount}" FontSize="48" FontWeight="Bold"/>
             </StackPanel>
 
             <Button Grid.Column="1" 

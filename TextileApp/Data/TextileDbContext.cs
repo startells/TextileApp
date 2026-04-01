@@ -11,5 +11,6 @@ namespace TextileApp.Data
         }
 
         public DbSet<Material> Materials { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -16,6 +16,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MVVM\Views\Dashboard.xaml" />
+    <None Remove="MVVM\Views\Materials.xaml" />
+    <None Remove="Styles\TableStyles.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1721" />
@@ -41,7 +44,16 @@
     <Folder Include="Assets\Icons\" />
     <Folder Include="MVVM\Models\" />
     <Folder Include="MVVM\DialogViews\" />
-    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Styles\TableStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MVVM\Views\Materials.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVVM\Views\Dashboard.xaml">

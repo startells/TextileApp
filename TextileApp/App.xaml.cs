@@ -31,7 +31,9 @@ namespace TextileApp
 
             services.AddScoped<IMaterialService, MaterialService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IClientService, ClientService>();
             services.AddTransient<DashboardViewModel>();
+            services.AddTransient<MaterialsViewModel>();
 
             _serviceProvider = services.BuildServiceProvider();
         }

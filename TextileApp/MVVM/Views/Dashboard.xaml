@@ -12,8 +12,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="{Binding ViewModel.Title}" 
@@ -21,46 +19,67 @@
                    FontWeight="Bold"
                    Foreground="{ThemeResource TextFillColorPrimary}"/>
 
-        <Grid Grid.Row="1" Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+        <Grid Grid.Row="1" ColumnSpacing="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel>
+            <!-- Материалы -->
+            <Grid Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
                 <TextBlock Text="Материалы" FontSize="16" Foreground="{ThemeResource TextFillColorSecondary}"/>
-                <TextBlock Text="{Binding ViewModel.MaterialsCount}" FontSize="48" FontWeight="Bold"/>
-            </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding ViewModel.MaterialsCount}" FontSize="48" FontWeight="Bold" Margin="0,8,0,8"/>
+                <Button Grid.Row="2" Command="{Binding ViewModel.LoadDataCommand}" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <SymbolIcon Symbol="Refresh"/>
+                        <TextBlock Text="Обновить"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
 
-            <Button Grid.Column="1" 
-                    VerticalAlignment="Center"
-                    Command="{Binding ViewModel.LoadDataCommand}">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <SymbolIcon Symbol="Refresh"/>
-                    <TextBlock Text="Обновить"/>
-                </StackPanel>
-            </Button>
-        </Grid>
+            <!-- Активные заказы -->
+            <Grid Grid.Column="1" Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <Grid Grid.Row="2" Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel>
                 <TextBlock Text="Активные заказы" FontSize="16" Foreground="{ThemeResource TextFillColorSecondary}"/>
-                <TextBlock Text="{Binding ViewModel.ActiveOrdersCount}" FontSize="48" FontWeight="Bold"/>
-            </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding ViewModel.ActiveOrdersCount}" FontSize="48" FontWeight="Bold" Margin="0,8,0,8"/>
+                <Button Grid.Row="2" Command="{Binding ViewModel.LoadDataCommand}" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <SymbolIcon Symbol="Refresh"/>
+                        <TextBlock Text="Обновить"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
 
-            <Button Grid.Column="1" 
-                    VerticalAlignment="Center"
-                    Command="{Binding ViewModel.LoadDataCommand}">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <SymbolIcon Symbol="Refresh"/>
-                    <TextBlock Text="Обновить"/>
-                </StackPanel>
-            </Button>
+            <!-- Клиенты -->
+            <Grid Grid.Column="2" Padding="20" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Клиенты" FontSize="16" Foreground="{ThemeResource TextFillColorSecondary}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ViewModel.ClientsCount}" FontSize="48" FontWeight="Bold" Margin="0,8,0,8"/>
+                <Button Grid.Row="2" Command="{Binding ViewModel.LoadDataCommand}" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <SymbolIcon Symbol="Refresh"/>
+                        <TextBlock Text="Обновить"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
         </Grid>
 
     </Grid>

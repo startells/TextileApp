@@ -40,7 +40,7 @@ namespace TextileApp
             _navigationService.RegisterPage("orders", typeof(Dashboard));
             _navigationService.RegisterPage("employees", typeof(Dashboard));
             _navigationService.RegisterPage("products", typeof(Dashboard));
-            _navigationService.RegisterPage("materials", typeof(Dashboard));
+            _navigationService.RegisterPage("materials", typeof(Materials));
             _navigationService.RegisterPage("accessories", typeof(Dashboard));
 
             // Навигируем на первую страницу по умолчанию

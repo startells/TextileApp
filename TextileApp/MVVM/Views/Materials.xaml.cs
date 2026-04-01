@@ -5,24 +5,22 @@ using TextileApp.MVVM.ViewModels;
 
 namespace TextileApp.MVVM.Views
 {
-    public sealed partial class Dashboard : Page
+    public sealed partial class Materials : Page
     {
-        public DashboardViewModel ViewModel { get; }
+        public MaterialsViewModel ViewModel { get; }
 
-        public Dashboard()
+        public Materials()
         {
             InitializeComponent();
             var app = App.Current as App;
-            ViewModel = app?.GetService<DashboardViewModel>() ?? new DashboardViewModel(null, null, null);
+            ViewModel = app?.GetService<MaterialsViewModel>() ?? new MaterialsViewModel(null);
             DataContext = this;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            await ViewModel.LoadDataCommand.ExecuteAsync(null);
+            await ViewModel.LoadMaterialsCommand.ExecuteAsync(null);
         }
     }
 }
-
-
